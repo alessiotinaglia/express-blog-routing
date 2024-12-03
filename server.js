@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
     res.send("<h1>Server del mio blog</h1>");
 });
 
+// stampa tutti gli oggetti di posts con una nuova rotta
 app.get("/bacheca", (req, res) => {
     const result = {
         conteggio: posts.length, 
@@ -29,6 +30,18 @@ app.get("/bacheca", (req, res) => {
     };
     res.json(result); 
 });
+
+// trova un oggetto tramite l'id
+app.get("/posts/:id", (req, res) => {
+    const postId = parseInt(req.params.id); 
+    const post = posts.find(p => p.id === postId); 
+    if (post) {
+      res.json(post); 
+    } else {
+      res.status(404).json({ message: "Post non trovato" }); 
+    }
+  });
+
 
 // In ascolto sulla porta 3000
 app.listen(PORT, () => {
