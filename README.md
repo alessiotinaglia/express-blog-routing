@@ -19,4 +19,5 @@ Registrare il router dentro `app.js` con il prefisso `posts/`.
 ### Bonus
 
 - Provare a restituire la lista dei post dalla rotta *index*, in formato `json`
+
 - Provare a restituire un singolo post dalla rotta *show,* sempre in formato `json`
